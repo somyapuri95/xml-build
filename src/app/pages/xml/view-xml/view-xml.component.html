@@ -1,0 +1,37 @@
+
+
+      <mat-card class="full">
+          <nmdx-spinner [isLoading]="values?.isLoading"></nmdx-spinner>
+          <div class="card-header card-header-danger">
+              <p class="card-title mt-0" style="color: #FBFBFB; font-weight:bold;">XML Format View With Value's</p> 
+              <button [routerLink]="['/pages/xml']" mat-raised-button color="primary">Back</button> 
+            </div>
+            <div class="col-12 ">
+        <mat-card>
+            <table class="table table-bordered">
+                <tr *ngFor="let state of values?.items;">
+                  <td style="text-align: center;">
+                    <b>id</b>: {{state?.id}}<br/>
+                    <b> prijs</b>: {{state?.prijs}}<br/>
+                    <b>title</b>: {{state?.title}}<br/>
+                    <b> land</b>: {{state?.land}}<br/>
+                    <b> land_en</b>: {{state?.land_en}}<br/>
+                    <b>provincie</b>: {{state?.provincie}}<br/>
+                    <b> plaats</b>: {{state?.plaats}}<br/>
+                    <b> aantalSlaapkamers</b>: {{state?.aantalSlaapkamers}}<br/>
+                    <b> aantalBadkamers</b>: {{state?.aantalBadkamers}}<br/>
+                    <b> soortbouw</b>: {{state?.soortbouw}}<br/>
+                    <b> foto0</b>: {{state?.foto0}}<br/>
+                    <b> foto1</b>: {{state?.foto1}}<br/>
+                    <b> foto2</b>: {{state?.foto2}}<br/>
+                    <b> foto3</b>: {{state?.foto3}}<br/>
+                    <b> beschrijving</b>: {{state?.beschrijving}}<br/>
+                  </td>
+                </tr>
+              </table>
+        
+        </mat-card>
+      </div>
+      </mat-card>
+    
+  

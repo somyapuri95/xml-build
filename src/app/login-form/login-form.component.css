@@ -1,0 +1,317 @@
+
+/* login-form component css */
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins',
+      sans-serif;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    background: #ebeeef;
+    font-family: 'Poppins',
+      sans-serif;
+    letter-spacing: 1px;
+  }
+  
+  
+  .frame {
+    background: #fff;
+    border-top: solid 1px rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    transition: all .5s ease;
+    color: #000;
+  }
+  
+  .nav {
+    width: 100%;
+    opacity: 1;
+    transition: all .5s ease;
+  }
+  
+  .nav-up {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  
+  .signin-active a {
+    text-decoration: none;
+    transition: all .25s ease;
+    cursor: pointer;
+  }
+  
+  .signin-inactive a {
+    color: rgba(255, 255, 255, .3);
+    text-decoration: none;
+    border-bottom: none;
+    cursor: pointer;
+  }
+  
+  .signup-active a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .signup-inactive a {
+    cursor: pointer;
+    color: rgba(255, 255, 255, .3);
+    text-decoration: none;
+    transition: all .25s ease;
+  }
+  
+  .btn-sign-in {
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: #000;
+  }
+  
+  .btn-sign-up {
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: #000;
+  }
+  
+  .form-styling {
+    width: 100%;
+    border-radius: 20px;
+    background: #6666661e;
+    border: 1px solid #fff;
+  }
+  
+  label {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    display: block;
+  }
+  
+  :focus {
+    outline: none;
+  }
+  
+  .form-signin input:focus,
+  textarea:focus,
+  .form-signup input:focus,
+  textarea:focus {
+    background: rgba(255, 255, 255, 0.3);
+    padding-right: 40px;
+    color: rgb(53, 53, 53);
+    border: 1px solid #0095DB;
+  }
+  
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position: absolute;
+    display: none;
+  }
+  
+  [type="checkbox"]:not(:checked)+label,
+  [type="checkbox"]:checked+label {
+    position: relative;
+    padding-left: 85px;
+    padding-top: 2px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+  [type="checkbox"]:not(:checked)+label:before,
+  [type="checkbox"]:checked+label:before,
+  [type="checkbox"]:not(:checked)+label:after,
+  [type="checkbox"]:checked+label:after {
+    content: '';
+    position: absolute;
+  }
+  
+  [type="checkbox"]:not(:checked)+label:before,
+  [type="checkbox"]:checked+label:before {
+    width: 65px;
+    height: 30px;
+    background: rgba(41, 41, 41, 0.2);
+    border-radius: 15px;
+    left: 0;
+    top: -3px;
+    transition: all .2s ease;
+  }
+  
+  [type="checkbox"]:not(:checked)+label:after,
+  [type="checkbox"]:checked+label:after {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 50%;
+    top: 7px;
+    left: 10px;
+    transition: all .2s ease;
+  }
+  
+  /* on checked */
+  [type="checkbox"]:checked+label:before {
+    background: #0095DB;
+  }
+  
+  [type="checkbox"]:checked+label:after {
+    background: #ffffff;
+    top: 7px;
+    left: 45px;
+  }
+  
+  [type="checkbox"]:checked+label .ui,
+  [type="checkbox"]:not(:checked)+label .ui:before,
+  [type="checkbox"]:checked+label .ui:after {
+    position: absolute;
+    left: 6px;
+    width: 65px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+    transition: all .2s ease;
+  }
+  
+  [type="checkbox"]:not(:checked)+label .ui:before {
+    content: "no";
+    left: 32px;
+    color: rgba(255, 255, 255, .7);
+  }
+  
+  [type="checkbox"]:checked+label .ui:after {
+    content: "yes";
+    color: #ffffff;
+  }
+  
+  [type="checkbox"]:focus+label:before {
+    box-sizing: border-box;
+    margin-top: -1px;
+  }
+  
+  .btn-signin,
+  .btn-navbar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #0095DB;
+    border-radius: 25px;
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    border: 1px solid #fff;
+  }
+  
+  .btn-navbar {
+    background: #fff;
+    color: #0095DB !important;
+    border: 1px solid #0095DB;
+  }
+  
+  .btn-navbar:hover {
+    background: #0095DB;
+    color: #fff !important;
+    border: 1px solid #0095DB;
+  
+  }
+  
+  .btn-animate {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 20px;
+    margin-top: 23px;
+    background-color: #ffffff;
+    left: 0px;
+    top: 0px;
+    transition: all .5s ease, top .5s ease .5s, height .5s ease .5s, background-color .5s ease .75s;
+  }
+  
+  .btn-animate-grow {
+    position: relative;
+    left: -55px;
+    top: -420px;
+    color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  a.btn-signup:hover,
+  a.btn-signin:hover {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #0095DB !important;
+    border: 1px solid #0095DB;
+    transition: background-color .5s;
+  }
+  
+  .btn-navbar.active {
+    cursor: pointer;
+    background-color: #0095DB;
+    color: #fff !important;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+  }
+  
+  h1 {
+    color: #0095DB;
+    font-size: 35px;
+    font-weight: 800 !important;
+    text-align: center;
+  }
+  
+  
+  /* FA ICONS  */
+  .username-fa-icon:before {
+    font-family: 'FontAwesome';
+    position: absolute;
+    color: #0095DB;
+    left: 20px;
+    top: 10px;
+    content: "\f007";
+  }
+  
+  .password-fa-icon:before {
+    font-family: 'FontAwesome';
+    position: absolute;
+    color: #0095DB;
+    left: 20px;
+    top: 10px;
+    content: "\f023";
+  }
+  
+  .email-fa-icon:before {
+    font-family: 'FontAwesome';
+    position: absolute;
+    color: #0095DB;
+    left: 20px;
+    top: 10px;
+    content: "\f0e0";
+  }
+  
+  .phone-fa-icon:before {
+    font-family: 'FontAwesome';
+    position: absolute;
+    color: #0095DB;
+    left: 20px;
+    top: 10px;
+    content: "\f095";
+  }
+
+  .col-md-12.col-lg-8.mx-auto {
+    box-shadow: 0 0 12px 0px #0095DB;
+    margin-top: 27px;
+}
+

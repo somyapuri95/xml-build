@@ -1,0 +1,87 @@
+mat-card.mat-card {
+    width: 122%;
+}
+.table {
+    width: 100%;
+    margin-top: 24px;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+mat-card.m-2.p-3.w-100.mat-card {
+    background-color: #0095DB;
+    color: white;
+    height: 51px;
+}
+mat-card.contact.mat-card {
+    width: 122%;
+    margin-left: -4px;
+    margin-top: -8px;
+}
+button.mat-stroked-button.mat-primary {
+    float: right;
+    /* margin-top: -47px; */
+    color: #0095DB;
+    border-radius: 20px;
+}
+
+button.Row.mat-stroked-button {
+  
+    color: #0095DB;
+    border-radius: 20px;
+}
+
+button.save.mat-stroked-button {
+    margin-left: 12px;
+    color: #0095DB;
+    border-radius: 20px;
+}
+button.primary.mat-raised-button {
+    background: #0095DB;
+    color: white;
+    margin-left: 18px;
+}
+button.mat-flat-button.mat-primary {
+    background: #0095DB;
+    margin-left: 12px;
+}
+input {
+    text-align: center;
+}
+p {
+    color: white;
+}
+input.form-control.ng-untouched.ng-pristine {
+    cursor: pointer;
+    border-radius: 20px;
+}
+input.form-control {
+    border-radius: 20px;
+}
+
+mat-icon.mat-icon.material-icons {
+    color: #F44336;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: #0095DB;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer */
+    color: #0095DB;
+  }
+  
+  ::placeholder {
+    color: #0095DB;
+  }
+  select.form-control.ng-pristine.ng-valid.ng-touched {
+    border-radius: 20px;
+}
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 2px);
+    border-radius: 20px;
+    color: #0095DB;
+}
+input.form-control.ng-untouched.ng-pristine {
+    color: #0095DB;
+}

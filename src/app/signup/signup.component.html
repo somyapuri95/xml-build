@@ -1,0 +1,127 @@
+<body>
+    <div class="row pt-0">
+        <div class="col-12 col-sm-6 mx-auto text-center">
+            <br><br>
+            <ng-container [ngSwitch]="section">
+                <ng-container *ngSwitchCase="'STEP_2'">
+                    <ng-container *ngTemplateOutlet="STEP_2"></ng-container>
+                </ng-container>
+                <ng-container *ngSwitchCase="'STEP_3'">
+                    <ng-container *ngTemplateOutlet="STEP_3"></ng-container>
+                </ng-container>
+                <ng-container *ngSwitchCase="'STEP_4'">
+                    <ng-container *ngTemplateOutlet="STEP_4"></ng-container>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div> 
+    <ng-template #STEP_2>
+            <div class="container my-auto">
+                    <div class="row align-items-center">
+                        <div class="col-md-12 col-lg-12 mx-auto">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="frame d-flex flex-column p-4">
+                                        <div class="nav d-flex justify-content-end">
+                                            <ul class="links list-inline">
+                                                    <li class="signin-active list-inline-item"><a
+                                                        class="btn btn-sign-in font-aeight-bold px-4 btn-navbar px-3 py-2 active">Sign up</a>
+                                                </li>
+                                                <li class="signup-inactive list-inline-item"><a
+                                                        class="btn btn-sign-up font-aeight-bold px-4 btn-navbar px-3 py-2" [routerLink]="['/signin']" *ngIf="!parentId">Sign In
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="row my-3 pb-4">
+                                                <div class="col-lg-8 mx-auto signin-form">
+
+                                                        <h1 class="text-center font-weight-bold mb-4 wrapper">SIGN UP</h1>
+                    
+                                                        <form class="form-signin" [formGroup]="form" *ngIf="section == 'STEP_2'">
+
+                                                                <div class="w-100 mb-3 pb-3">
+                                                                    <label class="mb-0" for="name">User Name</label>
+                                                                    <div class="w-100 position-relative">
+                                                                        <div class="username-fa-icon w-100">
+                                                                            <input class="form-styling py-2 px-3 pl-5 " type="text" name="name"
+                                                                            formControlName="username" [(ngModel)]="user.username"  placeholder="" autocomplete="off" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                        
+                                                                <div class="w-100 mb-3 pb-3">
+                                                                    <label class="mb-0" for="username">Email</label>
+                                                                    <div class="w-100 position-relative">
+                                                                        <div class="email-fa-icon w-100">
+                                                                            <input class="form-styling py-2 px-3 pl-5 " type="email"
+                                                                            formControlName="email" [(ngModel)]="user.email" email  name="email" placeholder="" autocomplete="off" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                        
+                                                                <div class="w-100 mb-3 pb-3">
+                                                                    <label class="mb-0" for="phone">Phone</label>
+                                                                    <div class="w-100 position-relative">
+                                                                        <div class="phone-fa-icon w-100">
+                                                                            <input class="form-styling py-2 px-3 pl-5 " type="phone"
+                                                                            formControlName="phone" [(ngModel)]="user.phone"  name="phone" placeholder="" autocomplete="off" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                        
+                                                                <div class="w-100 mb-3 pb-3">
+                                                                    <label class="mb-0" for="password">Password</label>
+                                                                    <div class="w-100 position-relative">
+                                                                        <div class="password-fa-icon w-100">
+                                                                            <input class="form-styling py-2 px-3 pl-5" type="password"
+                                                                                name="password" formControlName="password" [(ngModel)]="user.password" placeholder="" autocomplete="off" />
+                                                                        </div>
+                                                                    </div>
+                        
+                                                                </div>
+                        
+                                                                <div class="w-100 mb-3 pb-3">
+                                                                    <label class="mb-0" for="password">Gender</label>
+                                                                    <div class="w-100 position-relative">
+                                                                        <div class="password-fa-icon w-100">
+                                                                                <select class="form-styling py-2 px-3 pl-5" placeholder="Select Gender" formControlName="gender" name="gender"
+                                                                                [(ngModel)]="user.gender">
+                                                                                <option value="" selected disabled>Select Gender</option>
+                                                                                <option value="male">Male</option>
+                                                                                <option value="female">Female</option>
+                                                                              </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                        
+                                                                <div class="btn-animate mt-0 d-flex justify-content-center mt-4 pt-4">
+                                                                    <a class="btn-signin px-5 py-3" (click)="register()"> REGISTER</a>
+                                                                </div>
+                                                            </form>
+                                                    </div>
+                                        </div>
+                                    </div></div></div></div></div></div>
+      
+    </ng-template>
+
+    <ng-template #STEP_3>
+        <form class="w-100  p-3" [formGroup]="form3">
+            <h6 class="primary_color font-weight-bold">Verification</h6>
+            <p class="sec_color"><small>Enter the verification code sent to your registered Phone</small></p>
+
+            <input type="text" placeholder="verification code" class="my-2" formControlName="otp" [(ngModel)]="otp">
+            <button mat-raised-button type="submit" class="w-100 py-2 mt-3" color="primary" (click)="verify()">Check</button>
+            <p class="sec_color m-0"><small>Didn't the code arrive?</small></p>
+
+        </form>
+    </ng-template>
+
+    <ng-template #STEP_4>
+
+        <h1>Thank you</h1>
+        <p>{{thankyouMsg}}</p>
+        <h5 class="mt-3">Or <a [routerLink]="['/signin']">Please login using your social security username and password</a></h5>
+    </ng-template>
+
+</body>

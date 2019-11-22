@@ -1,0 +1,28 @@
+<div class="header">
+    <div class="row m-0">
+        <div class="col-10 p-0">
+            <mat-toolbar color="primary">
+                <span class="example-spacer"></span>
+                <button mat-button class="float-right" [matMenuTriggerFor]="menu" ng-click=""
+                    ng-style="{'background-color': 'white'}">
+                    Welcome! {{(user?.username || 'N/A') | titlecase}}
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="logOut()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Log Out</span>
+                    </button>
+                    <button mat-menu-item (click)="openBottomSheet()">
+                        Change Password
+                    </button>
+                </mat-menu>
+            </mat-toolbar>
+            <div class="row p-3 m-0">
+                <div class="container container p-0 m-0">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

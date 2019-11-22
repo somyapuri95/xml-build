@@ -1,0 +1,71 @@
+<!-- <mat-card> -->
+  
+  
+  <div class="col-12 ">
+      <nmdx-spinner [isLoading]="xmls?.isLoading"></nmdx-spinner>
+    <mat-card class="contact">
+       
+      <mat-card-content>
+          <button mat-stroked-button color="primary" [routerLink]="['/pages/xml/change-kyero-format']">XML Link Convert To
+            Kyero format</button>
+        <div class="table-responsive" >
+          
+          <table class="table">
+            <tr>
+              <th style="text-align: center;">Kyero Fields</th>
+              <th style="text-align: center;">XML Fields</th>
+              <th style="text-align: center;">Default Value</th>
+              <th style="text-align: center;">Action</th>
+            </tr>
+            <tr>
+              <td style="text-align: center;">
+                <select class="form-control" [(ngModel)]="id">
+                  <option style=" color: #0095DB;" *ngFor="let state of xmls?.items;">{{state}}</option>
+                </select>
+              </td>
+              <td>
+                <div [routerLink]="['/pages/xml/view-xml']">
+                <input type="text" class="form-control" [(ngModel)]="id"  placeholder="id" disabled>
+                </div>
+              </td>
+              <td>
+                <form class="p-0" #offerFrom>
+                  <div class="row">
+                      <input type="text" class="form-control" autocomplete="off" placeholder="Add Manually" >
+                      <!-- <button mat-raised-button class="primary" [routerLink]="['/pages/xml/edit-column']">
+                          Add Manually
+                      </button> -->
+                  </div>
+                </form>
+
+              </td>
+              <td style="text-align: center;">
+                  <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                      <!-- <input type="text" class="form-control" autocomplete="off" > -->
+                   
+                    <!-- <div class="form-group col-md-2">
+                      <button mat-raised-button class="primary" (click)="save()" matTooltip="SAVE"
+                        matTooltipPosition="above">
+                        SAVE
+                      </button>
+                    </div> -->
+               
+              </td>
+            </tr>
+            <button mat-stroked-button class="Row" >Add New Row</button>
+        
+          <button mat-stroked-button class="save" >Save & Run</button>
+          </table>
+          
+        </div>
+        
+      </mat-card-content>
+     
+    </mat-card>
+  </div>
+<!-- </mat-card> -->
