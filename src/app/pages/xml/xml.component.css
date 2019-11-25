@@ -3,7 +3,7 @@ mat-card.mat-card {
 }
 .table {
     width: 100%;
-    margin-top: 24px;
+    margin-top: 11px;
     max-width: 100%;
     margin-bottom: 1rem;
     background-color: transparent;
@@ -18,11 +18,11 @@ mat-card.contact.mat-card {
     margin-left: -4px;
     margin-top: -8px;
 }
-button.mat-stroked-button.mat-primary {
-    float: right;
-    /* margin-top: -47px; */
-    color: #0095DB;
+button.submit.mat-stroked-button {
+    margin-left: 56%;
+    margin-top: -20%;
     border-radius: 20px;
+    color: #0095DB;
 }
 
 button.Row.mat-stroked-button {
@@ -57,6 +57,7 @@ input.form-control.ng-untouched.ng-pristine {
 }
 input.form-control {
     border-radius: 20px;
+    margin-top: 6px;
 }
 
 mat-icon.mat-icon.material-icons {

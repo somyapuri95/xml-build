@@ -10,10 +10,9 @@ import { Model } from 'src/app/shared/common/contracts/model';
   styleUrls: ['./xml.component.css']
 })
 export class XmlComponent implements OnInit {
-  // panelOpenState: boolean = false;
-  // isEdit: boolean = false;
+  xml: Xml = new Xml();
   xmls: Page<Xml>;
-  // xml: Model<Xml>;
+   xmlOne: Model<Xml>;
   values: Page<Xml>;
   constructor(private feedbackService: XMLService) {
     this.xmls = new Page({
@@ -30,6 +29,30 @@ export class XmlComponent implements OnInit {
    
 
    }
+
+   add() {
+   
+    if (!this.xml.username) {
+      alert('Please Select username');
+    }
+    if (!this.xml.url) {
+      alert('Please Select URL');
+    }
+    this.xmls.isLoading = false;
+    this.feedbackService.xmls.create(this.xml).then(() => {
+      this.xmls.isLoading = true;
+      this.xmls.fetch();
+      this.xml.reset();
+
+    });
+  }
+
+
+  update() {
+      return this.xmlOne.update().then(() => {
+        alert('updated');
+      });
+  }
 
   ngOnInit() {
   }

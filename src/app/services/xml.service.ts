@@ -15,9 +15,13 @@ import { Xml } from '../models/xml';
 export class XMLService {
   xmls: IApi<Xml>;
   values: IApi<Xml>;
+  onlyXmls: IApi<Xml>;
+  updateXmls: IApi<Xml>;
   constructor(http: HttpClient) {
     this.xmls = new GenericApi<Xml>('xmls', http);
     this.values = new GenericApi<Xml>('xmls/values', http);
+    this.onlyXmls = new GenericApi<Xml>('xmls/only/view', http);
+    this.updateXmls = new GenericApi<Xml>('xmls/:id', http);
   }
 
 }

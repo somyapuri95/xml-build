@@ -5,5 +5,10 @@ export class Xml {
     username?: string = "";
     constructor() {
     }
+    reset() {
+      this.id = null;
+      this.url = '';
+      this.username = "";
+  }
   }
   
