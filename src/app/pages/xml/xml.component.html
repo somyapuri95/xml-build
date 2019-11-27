@@ -1,72 +1,275 @@
-<!-- <mat-card> -->
-  
-  
-  <div class="col-12 ">
-      <nmdx-spinner [isLoading]="xmls?.isLoading"></nmdx-spinner>
-    <mat-card class="contact">
-       
-      <mat-card-content>
-          <table>
-              <tr>
-                <td>
-                    <div class="row">
-                        <div class="form-group  col-md-6">
-                          <input type="text" class="form-control" autocomplete="off" placeholder="User Name" [(ngModel)]="xml.username" name="username">
+<mat-card class="crd">
+  <nmdx-spinner [isLoading]="xmls?.isLoading"></nmdx-spinner>
+  <div class="container my-auto">
+    <div class="row align-items-center">
+      <div class="col-md-12 col-lg-12 mx-auto">
+        <div class="row">
+          <div class="col-12">
+            <div class="frame d-flex flex-column p-4 position-relative overflow-hidden">
+              <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <form class="form-inline w-100 d-flex" >
+                    <div class="md-form my-0 col-12 col-lg-12 col-xl-12 d-flex px-0">
+                      <input class="form-styling py-1 px-3 form-control mr-sm-2  my-0" type="text" placeholder="Name"
+                        aria-label="Name" autocomplete="off" [(ngModel)]="xml.username" name="username">
+                      <input style="min-width: 45%;" class="form-styling py-1 px-3 form-control mr-sm-2 my-0"
+                        type="text" placeholder="XML URL" autocomplete="off" aria-label="URL" [(ngModel)]="xml.url"
+                        name="url">
+                      <button class="btn btn-sign-in px-4 btn-navbar px-3 py-2 my-0 ml-5 " type="submit"
+                        (click)="add()">Submit</button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- AUTH USER NAME  -->
+                <div>
+                  <!--Dropdown primary-->
+                  <div class="dropdown">
+
+                    <!--Trigger-->
+                    <p class="mb-0 border-0 py-2 px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                      style="cursor: pointer;color:#0095DB"><i class="fa fa-user pr-2"></i>Welcome!
+                      {{(user?.username || 'N/A') | titlecase}} </p>
+                    <!--Menu-->
+                    <div class="dropdown-menu dropdown-primary border-0">
+                      <a class="dropdown-item" (click)="logOut()">Logout</a>
+                      <a class="dropdown-item" (click)="openBottomSheet()">Change Passwordut</a>
+                    </div>
+
+                  </div>
+                  <!--/Dropdown primary-->
+                  <a href="">
+
+                  </a>
+
+                </div>
+
+
+                <!-- COLLAPSE END  -->
+
+
+              </nav>
+
+              <div class="row my-3 pb-4">
+
+
+                <!-- SIGN IN FORM  -->
+                <div class="col-lg-12 mx-auto signin-form">
+
+                  <!--Table-->
+                  <table class="table table-hover table-fixed" *ngIf="show">
+
+                    <!--Table head-->
+                    <thead >
+                      <tr>
+                        <th>Kyero Fields</th>
+                        <th>XML Fields</th>
+                        <th>Default Value</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody > 
+                      <tr>
+                        <td>
+                          <select class="form-control" searchable="Search">
+                              <option value="" disabled>XMl Fields</option>
+                              <option  *ngFor="let s of kyeroFields">
+                                {{s.name}}
+                              </option>
+                            <!-- <option value="id">id</option>
+                            <option value="date">date</option>
+                            <option value="ref">ref</option>
+                            <option value="price">price</option>
+                            <option value="currency">currency</option>
+                            <option value="location">location</option>
+                            <option value="price_freq">price_freq</option>
+                            <option value="part_ownership">part_ownership</option>
+                            <option value="leasehold">leasehold</option>
+                            <option value="new_build">new_build</option>
+                            <option value="type">type</option>
+                            <option value="location_id">location_id</option>
+                            <option value="town">town</option>
+                            <option value="postcode">postcode</option>
+                            <option value="province">province</option>
+                            <option value="location">location</option>
+                            <option value="beds">beds</option>
+                            <option value="baths">baths</option>
+                            <option value="pool">pool</option>
+                            <option value="surface_area">surface_area</option>
+                            <option value="energy_rating">energy_rating</option>
+                            <option value="url">url</option>
+                            <option value="beds">beds</option> -->
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" searchable="Search" [(ngModel)]="filters.id">
+                            <option value="" disabled>XMl Fields</option>
+                            <option *ngFor="let s of filters;let i = index" [value]="s.id">
+                              {{s.name}}
+                            </option>
+                          </select>
+                        </td>
+                        <td>
+                          <input class="form-styling py-1 px-3 mb-0 line-height-30 form-control mr-sm-2" type="text"
+                            placeholder="Add Manually" aria-label=""  [(ngModel)]="filters.name"
+                            autocomplete="off">
+                        </td>
+                        <td class="d-flex">
+                          <a (click)="onButtonClicked(filters.name,filters.id)"><i class="fa fa-save fa-icon"
+                              aria-hidden="true"></i></a>
+                          <span><i class="fa fa-times fa-icon ml-3" aria-hidden="true"
+                              (click)="deleteRow(i)"></i></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <select class="form-control" searchable="Search">
+                            <option value="" disabled selected>location</option>
+                            <option value="id">id</option>
+                            <option value="date">date</option>
+                            <option value="ref">ref</option>
+                            <option value="price">price</option>
+                            <option value="currency">currency</option>
+                            <option value="location">location</option>
+                            <option value="price_freq">price_freq</option>
+                            <option value="part_ownership">part_ownership</option>
+                            <option value="leasehold">leasehold</option>
+                            <option value="new_build">new_build</option>
+                            <option value="type">type</option>
+                            <option value="location_id">location_id</option>
+                            <option value="town">town</option>
+                            <option value="postcode">postcode</option>
+                            <option value="province">province</option>
+                            <option value="location">location</option>
+                            <option value="beds">beds</option>
+                            <option value="baths">baths</option>
+                            <option value="pool">pool</option>
+                            <option value="surface_area">surface_area</option>
+                            <option value="energy_rating">energy_rating</option>
+                            <option value="url">url</option>
+                            <option value="beds">beds</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" searchable="Search" [(ngModel)]="values.id">
+                            <option value="" disabled>XMl Fields</option>
+                            <option *ngFor="let s of values;let i = index" [value]="s.id">
+                              {{s.name}}
+                            </option>
+                          </select>
+                        </td>
+                        <td>
+                          <input class="form-styling py-1 px-3 mb-0 line-height-30 form-control mr-sm-2" type="text"
+                            placeholder="Add Manually" aria-label="" name="name" [(ngModel)]="values.name">
+                        </td>
+                        <td class="d-flex">
+                          <a (click)="onClicked(values.name,values.id)"><i class="fa fa-save fa-icon" aria-hidden="true"></i></a>
+                          <span><i class="fa fa-times fa-icon ml-3" aria-hidden="true"></i></span>
+                        </td>
+                      </tr>
+                      
+                      <tr *ngFor="let dynamic of dynamicArray; let i = index;">
+                        <td>
+                          <div class="md-form my-0 col-12 d-flex px-0">
+                            <input class="form-styling py-1 px-3 mb-0 line-height-30 form-control mr-sm-2" type="text"
+                              placeholder="Kyero Fields" aria-label="">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="md-form my-0 col-12 d-flex px-0">
+                            <input class="form-styling py-1 px-3 mb-0 line-height-30 form-control mr-sm-2" type="text"
+                              placeholder="XML Fields" aria-label="">
+                          </div>
+                        </td>
+                        <td>
+                          <input class="form-styling py-1 px-3 mb-0 line-height-30 form-control mr-sm-2" type="text"
+                            placeholder="Add Manually" aria-label="">
+                        </td>
+                        <td class="d-flex">
+                          <a href=""><i class="fa fa-save fa-icon" aria-hidden="true"></i></a>
+                          <span><i class="fa fa-times fa-icon ml-3" aria-hidden="true"
+                              (click)="deleteRow(i)"></i></span>
+                        </td>
+                      </tr>
+                      
+                      <div class="row">
+                        <div class="col-12 position-relative d-flex">
+                          <button class="btn btn-sign-in px-4 btn-navbar px-3 py-2" type="submit mb-0 text-lowercase"
+                            (click)="addRow()">Add new
+                            row</button>
+                          <button class="btn btn-sign-in px-4 btn-navbar px-3 py-2 ml-auto"
+                            type="submit mb-0 text-lowercase" (click)="run($event)">Save & Run</button>
+                          <p style="color: rgb(10, 11, 12); margin-top: 12px; cursor: pointer;">{{link}}</p>
                         </div>
-                        <div class="form-group  col-md-6">
-                          <input type="text" class="form-control" autocomplete="off" placeholder="XML URL" [(ngModel)]="xml.url" name="url">
+                        <div class="col-12 position-relative d-flex">
+                          <button class="search-replace-toggle btn btn-sign-in px-4 btn-navbar px-3 py-2 ss"
+                            type="submit mb-0 text-lowercase">Search & Replace</button>
+    
+                        </div>
+                        <div class="col-12 position-relative my-3 justify-content-center search-replace">
+                          <form class="form-inline w-100 d-flex">
+                            <div class="md-form my-0 col-12 col-lg-12 col-xl-12 d-flex text-center flex-column">
+    
+                              <div class="row w-100">
+                                <div class="col-3 d-flex pl-0">
+                                  <input class="d-block w-100 form-styling py-1 px-3 form-control my-0" type="text"
+                                    placeholder="Search" aria-label="Search">
+                                </div>
+                                <div class="col-3 d-flex">
+                                  <input class="w-100 form-styling py-1 px-3 form-control my-0" type="text"
+                                    placeholder="Replace" aria-label="Replace">
+                                </div>
+                              </div>
+    
+                              <div class="w-100 new-fields">
+    
+                              </div>
+    
+    
+                              <div class="row w-100 mt-3">
+                                <div class="col-12 position-relative d-flex">
+                                  <button mat-stroked-button class="Row" (click)="addRow()">Add New Row</button>&nbsp;
+                                  &nbsp;
+                                  &nbsp;
+                                  <button class="btn btn-sign-in px-4 btn-navbar" type="mb-0 text-lowercase"
+                                    (click)="run($event)">Save</button>
+                                  <p style="color: rgb(10, 11, 12); margin-top: 12px; cursor: pointer;">{{link}}</p>
+                                </div>
+                              </div>
+    
+                            </div>
+                          </form>
                         </div>
                       </div>
-                </td>
-                <td class="action">
-                    <button mat-stroked-button type="submit" class="submit" (click)="add()">Submit</button>
-                  </td>
-              </tr>
-            </table>
-          
-        <div class="table-responsive" >
-          
-          <table class="table">
-            <tr>
-              <th style="text-align: center;">Kyero Fields</th>
-              <th style="text-align: center;">XML Fields</th>
-              <th style="text-align: center;">Default Value</th>
-              <th style="text-align: center;">Action</th>
-            </tr>
-            <tr>
-              <td style="text-align: center;">
-                <select class="form-control" [(ngModel)]="id">
-                  <option style=" color: #0095DB;" *ngFor="let state of xmls?.items;">{{state}}</option>
-                </select>
-              </td>
-              <td>
-                <div [routerLink]="['/pages/xml/view-xml']">
-                <input type="text" class="form-control" [(ngModel)]="id"  placeholder="id" disabled>
-                </div>
-              </td>
-              <td>
+                    </tbody>
+                    <!--Table body-->
+                  </table>
+                  <!--Table-->
+
                   <div class="row">
-                      <input type="text" class="form-control" autocomplete="off" placeholder="Add Manually">
+                    <div class="col-12 text-right">
+
+                    </div>
                   </div>
-              </td>
-              <td style="text-align: center;">
-                  <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="update()">
-                      <mat-icon title="replace value">save</mat-icon>
-                    </button>
-                    <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                        <mat-icon>close</mat-icon>
-                      </button>
-              </td>
-            </tr>
-            <button mat-stroked-button class="Row" >Add New Row</button>
-        
-          <button mat-stroked-button class="save" [routerLink]="['/pages/xml/change-kyero-format']">Save & Run</button>
-          </table>
-          
+                  
+                </div>
+                <!-- SIGN IN FORM END -->
+              </div>
+            </div>
+          </div>
         </div>
-        
-      </mat-card-content>
-     
-    </mat-card>
+      </div>
+    </div>
   </div>
-<!-- </mat-card> -->
+</mat-card>
+ 
+
+

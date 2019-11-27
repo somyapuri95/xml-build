@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { Router } from '@angular/router';
 import { MatBottomSheet } from '@angular/material';
 import { ChangePassComponent } from '../modals/change-pass/change-pass.component';
 

@@ -17,16 +17,26 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,800,900&display=swap" rel="stylesheet">
   <!-- font-awesome.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,800,900&display=swap" rel="stylesheet">
 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 </head>
 <!-- spinner css on home randing page -->
 <style>
+  .form-styling {
+  width: 100%;
+  border-radius: 20px;
+  background: #6666661e;
+  border: 1px solid rgba(255, 255, 255, 0.829);
+}
+
   body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    background: url(/assets/images/1.jpg);
+   background-color: white;
     background-size: cover;
     background-position: center;
   }
@@ -63,12 +73,7 @@
     transition: 0.3s;
   }
 
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  
 
   /* 100% Image Width on Smaller Screens */
   @media only screen and (max-width: 700px) {
@@ -165,6 +170,8 @@
   <nmdx-root>
     <!-- loader -->
     <div class="home-spinner">
+     <br/>
+     <br/>
       <div class="spinner">
         <div class="cube1"></div>
         <div class="cube2"></div>
